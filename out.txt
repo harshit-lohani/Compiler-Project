@@ -1,0 +1,29 @@
+LEXEME                    LINE       TOKEN           VALUE           PARENT     IS LEAF? NODE SYMBOL
+
+
+_sumN                     4          TK_FUNID        ----            function                       yes   TK_FUNID
+----                      ----       ----            ----            otherFunctions                 no    <function>
+input                     4          TK_INPUT        ----            input_par                      yes   TK_INPUT
+----                      ----       ----            ----            function                       no    <input_par>
+parameter                 4          TK_PARAMETER    ----            input_par                      yes   TK_PARAMETER
+list                      4          TK_LIST         ----            input_par                      yes   TK_LIST
+[                         4          TK_SQL          ----            input_par                      yes   TK_SQL
+int                       4          TK_INT          ----            primitiveDatatype              yes   TK_INT
+----                      ----       ----            ----            dataType                       no    <primitiveDatatype>
+----                      ----       ----            ----            parameter_list                 no    <dataType>
+----                      ----       ----            ----            input_par                      no    <parameter_list>
+d5cc34                    4          TK_ID           ----            parameter_list                 yes   TK_ID
+----                      ----       ----            ----            parameter_list                 yes   <remaining_list>
+(ERROR)                   (ERROR)    (ERROR)         ----            input_par                      yes   TK_SQR
+----                      ----       ----            ----            function                       yes   <output_par>
+;                         5          TK_SEM          ----            function                       yes   TK_SEM
+----                      ----       ----            ----            stmts                          yes   <typeDefinitions>
+----                      ----       ----            ----            function                       no    <stmts>
+----                      ----       ----            ----            stmts                          yes   <declarations>
+----                      ----       ----            ----            stmts                          yes   <otherStmts>
+----                      ----       ----            ----            stmts                          yes   <returnStmt>
+(ERROR)                   (ERROR)    (ERROR)         ----            function                       yes   TK_END
+----                      ----       ----            ----            program                        no    <otherFunctions>
+----                      ----       ----            ----            otherFunctions                 yes   <otherFunctions>
+----                      ----       ----            ----            ROOT                           no    <program>
+----                      ----       ----            ----            program                        yes   <mainFunction>

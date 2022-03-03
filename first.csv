@@ -1,0 +1,49 @@
+Non Terminal,First Set
+First(<program>),"{TK_FUNID,TK_MAIN}"
+First(<mainFunction>),{TK_MAIN}
+First(<otherFunctions>),"{TK_FUNID, EPS}"
+First(<function>),{TK_FUNID}
+First(<input_par>),{TK_INPUT}
+First(<output_par>),"{TK_OUTPUT, EPS}"
+First(<parameter_list>),"{TK_INT, TK_REAL, TK_RECORD}"
+First(<dataType>),"{TK_INT, TK_REAL, TK_RECORD}"
+First(<primitiveDatatype>),"{TK_INT, TK_REAL}"
+First(<constructedDatatype>),{TK_RECORD}
+First(<remaining_list>),"{TK_COMMA, EPS}"
+First(<stmts>),"{TK_RECORD, TK_TYPE, TK_ID, TK_RECORDID, TK_WHILE, TK_IF,  TK_READ, TK_WRITE, TK_SQL, TK_CALL, TK_RETURN}"
+First(<typeDefinitions>),"{TK_RECORD,EPS}"
+First(<typeDefinition>),{TK_RECORD}
+First(<fieldDefinitions>),{TK_TYPE}
+First(<fieldDefinition>),{TK_TYPE}
+First(<moreFields>),"{TK_TYPE, EPS}"
+First(<declarations>),"{TK_TYPE, EPS}"
+First(<declaration>),{TK_TYPE}
+First(<declaration’>),"{TK_COLON, EPS}"
+First(<global_or_not>),{TK_GLOBAL}
+First(<otherStmts>),"{TK_ID,TK_RECORDID,TK_WHILE,TK_IF,TK_READ,TK_WRITE,TK_SQL,TK_CALL,EPS}"
+First(<stmt>),"{TK_ID,TK_RECORDID,TK_WHILE,TK_IF,TK_READ,TK_WRITE,TK_SQL,TK_CALL}"
+First(<assignmentStmt>),"{TK_ID,TK_RECORDID}"
+First(<singleOrRecId>),"{TK_ID,TK_RECORDID}"
+First(<funCallStmt>),"{TK_SQL,TK_CALL}"
+First(<outputParameters>),"{TK_SQL,EPS}"
+First(<inputParameters>),{TK_SQL}
+First(<iterativeStmt>),{TK_WHILE}
+First(<conditionalStmt>),{TK_IF}
+First(<ioStmt>),"{TK_READ,TK_WRITE}"
+First(<allVar>),"{TK_RECORDID, TK_ID, TK_NUM, TK_RNUM}"
+First(<conditionalStmt'>),"{TK_ELSE, TK_ENDIF}"
+First(<arithmeticExpression>),"{TK_OP, TK_ID, TK_NUM, TK_RNUM}"
+First(<expression>),"{TK_PLUS, TK_MINUS, EPS}"
+First(<term>),"{TK_OP, TK_ID, TK_NUM, TK_RNUM}"
+First(<term'>),"{TK_MUL, TK_DIV, EPS}"
+First(<factor>),"{TK_OP, TK_ID, TK_NUM, TK_RNUM}"
+First(<operator1>),"{TK_PLUS, TK_MINUS}"
+First(<operator2>),"{TK_MUL, TK_DIV}"
+First(<booleanExpression>),"{TK_OP, TK_NOT, TK_ID, TK_NUM, TK_RNUM}"
+First(<var>),"{TK_ID, TK_NUM, TK_RNUM}"
+First(<logicalOp>),"{TK_OR, TK_AND}"
+First(<relationalOp>),"{TK_LT, TK_LE, TK_GT, TK_GE, TK_EQ, TK_NE}"
+First(<returnStmt>),{TK_RETURN}
+First(<optionalReturn>),"{TK_SQL, EPS}"
+First(<idList>),{TK_ID}
+First(<more_ids>),"{TK_COMMA, EPS"
