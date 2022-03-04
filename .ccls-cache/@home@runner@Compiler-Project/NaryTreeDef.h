@@ -58,7 +58,6 @@ typedef enum{
 	factor,
 	highPrecedenceOperators,
 	lowPrecedenceOperators,
-	operator,
 	booleanExpression ,
 	var ,  
 	logicalOp ,  

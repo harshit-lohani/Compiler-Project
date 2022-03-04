@@ -14,9 +14,9 @@ Group:33
 #include "lexerDef.h"
 #include "NaryTreeDef.h"
 
-#define TOTAL_NON_TERMINALS 54
+#define TOTAL_NON_TERMINALS 53
 #define TOTAL_TERMINALS 60
-#define NO_OF_RULES 97
+#define NO_OF_RULES 94
 
 #define MAX_SYMBOL_SIZE 51
 

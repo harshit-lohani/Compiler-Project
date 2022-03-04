@@ -1,2 +1,2 @@
 all: 
-	gcc -o stage1exe driverNew.c lexer.c hashTable.c stack.c NaryTree.c parser.c
+	gcc driverNew.c lexer.c hashTable.c stack.c NaryTree.c parser.c -o main

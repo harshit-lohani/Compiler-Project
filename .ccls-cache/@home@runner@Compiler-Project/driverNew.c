@@ -142,13 +142,13 @@ int main(int argc, char *argv[]) {
 
   int syntax_errors = 0;
 
-  printf("***************************Information of implementation "
-         "details:***************************\n\n");
-  printf("LEVEL 4 : AST / Symbol Table / Type Checker / Semantic Module work "
-         "correctly\n");
+  // printf("***************************Information of implementation "
+  //        "details:***************************\n\n");
+  // printf("LEVEL 4 : AST / Symbol Table / Type Checker / Semantic Module work "
+  //        "correctly\n");
 
-  printf("***************************End of implementation "
-         "details***************************\n\n");
+  // printf("***************************End of implementation "
+  //        "details***************************\n\n");
 
   double total_CPU_time1, total_CPU_time_in_seconds1, total_CPU_time2,
       total_CPU_time_in_seconds2, total_CPU_time3, total_CPU_time_in_seconds3;
@@ -178,7 +178,7 @@ int main(int argc, char *argv[]) {
     printf("\n\nYour Input: ");
 
     int choice;
-    scanf("%d", &choice);
+    int x = scanf("%d", &choice);
     printf("Choice : %d\n", choice);
     switch (choice) {
 
@@ -187,7 +187,10 @@ int main(int argc, char *argv[]) {
     } break;
 
     case 1: {
-      removeComments(test_file_name, "out.txt");
+        //test_file remove comments -> out.txt
+  //       char * cleanTestFile = malloc(50 * sizeof(char));
+		// strcpy(cleanTestFile,strcat("clean", test_file_name));
+        removeComments(test_file_name, strcat("comment_removal_","out.txt"));
     } break;
 
     case 2: {
@@ -202,8 +205,10 @@ int main(int argc, char *argv[]) {
       unSetOverFlag();
       Token *token;
       while ((token = getNextToken(&fp)) != NULL) {
-        printf("Line No : %d\t Lexeme : %s\t Token type : %s\n", token->line_no,
-               token->lexeme, tokenMap2[token->type]);
+        if(token->type != TK_ERROR) {
+          printf("Line No : %d\t Lexeme : %s\t Token type : %s\n", token->line_no,
+                 token->lexeme, tokenMap2[token->type]);
+          }
         if (fp == NULL) {
           printf("File pointer null\n");
         }
@@ -211,6 +216,7 @@ int main(int argc, char *argv[]) {
       if (fp != NULL)
         fclose(fp);
       strcpy(test_file_name, temp_file_name);
+      initialized_lexer=0;
     } break;
 
     case 3: {
@@ -222,26 +228,24 @@ int main(int argc, char *argv[]) {
       if (initialized_lexer == 0) {
         initializeLexer();
         initialized_lexer = 1;
-        printf("Stage 1");
+        // printf("Stage 1");
       }
       if (initialized_plook_up == 0) {
-          printf("1\n");
+          // printf("1\n");
         plookupTable = createLookUpTable(NUMBER_OF_SLOTS);
-          printf("2\n");
+          // printf("2\n");
         plookupTable = PopulateLookUpTable(plookupTable, tokenMap2,
                                            TOTAL_TERMINALS, NUMBER_OF_SLOTS);
-          printf("3\n");
+          // printf("3\n");
           printf("%lu", sizeof(non_terminals2)/sizeof(non_terminals2[0]));
         plookupTable = PopulateLookUpTable(
             plookupTable, non_terminals2, TOTAL_NON_TERMINALS, NUMBER_OF_SLOTS);
-          printf("4\n");
+          // printf("4\n");
         initialized_plook_up = 1;
-        printf("Stage 2");
+        // printf("Stage 2");
       }
       FirstAndFollow *first_and_follow = ComputeFirstAndFollowSets(NUMBER_OF_SLOTS);
         
-
-      printf("wgesrdver");
       printFirstAndFollow(first_and_follow);
       if (created_parse_table == 0) {
         parse_table = createParseTable(first_and_follow);
@@ -250,17 +254,16 @@ int main(int argc, char *argv[]) {
       // printParseTable(parse_table);
 
       if (root_node_created == 0) {
-        rootNode =
-            parseInputSourceCode(temp_file_name, parse_table, &syntax_errors);
+        rootNode = parseInputSourceCode(temp_file_name, parse_table, &syntax_errors);
         root_node_created = 1;
       }
 
       FILE *outputfile = fopen("out.txt", "w");
-      fprintf(outputfile, "%-25s %-10s %-15s %-15s %-10s %-5s %s\n\n\n",
-              "LEXEME", "LINE", "TOKEN", "VALUE", "PARENT", "IS LEAF?",
-              "NODE SYMBOL");
+      // fprintf(outputfile, "%-25s %-10s %-15s %-15s %-10s %-5s %s\n\n\n",
+      //         "LEXEME", "LINE", "TOKEN", "VALUE", "PARENT", "IS LEAF?",
+      //         "NODE SYMBOL");
 
-      printParseTreeUtility(rootNode, tokenMap2, non_terminals2, outputfile);
+      // printParseTreeUtility(rootNode, tokenMap2, non_terminals2, outputfile);
       if (syntax_errors == 0)
         printf("Input source code is syntactically correct.\n");
       else

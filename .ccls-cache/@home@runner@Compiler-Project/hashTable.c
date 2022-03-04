@@ -84,7 +84,6 @@ pTable* PopulateLookUpTable(pTable* table,char** tokens,int no_of_tokens, int no
         if(tokens[i] == NULL) {
             continue;
         }
-        printf("hi!");
         pNode* n = (pNode*)malloc(sizeof(pNode));
         n->tType = i;
         //size of lexeme should not exceed 20

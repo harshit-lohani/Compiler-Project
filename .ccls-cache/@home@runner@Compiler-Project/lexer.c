@@ -825,7 +825,7 @@ Token* getNextToken(FILE** fp) {
                         lex[lexeme_ptr] = '\0';
                         fprintf(stderr, "Line No: %d : Unknown pattern %s at line\n", line_no, lex);
                         //Todo, check -2
-                        addToken(token, TK_ERROR, lex, -2, NULL);
+                        addToken(token, TK_ERROR, lex, -1, NULL);
                         final_state_flag = 1;
                     }
                     break;

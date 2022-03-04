@@ -35,6 +35,7 @@ StackNode* pop(Stack* stack) {
 }
 
 StackNode* top(Stack* stack) {
+    if(stack->size == 0) return NULL;
     return stack -> top;
 }
 
