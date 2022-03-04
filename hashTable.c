@@ -1,9 +1,10 @@
 /*
-Group:33
-2016A7PS0036P Megh Thakkar
-2016A7PS0103P Sahil Singla
-2016A7PS0110P Sankalp Sangle
-2016A7PS0150P Patel Parth
+Group:38
+2019A7PS0048P Dhairya Rikul Shah
+2019A7PS0061P Harshit Raj Lohani
+2019A7PS0124P Kshitij Banka
+2019A7PS0014P Rohini Prakash
+2019A7PS0082P Raghav Chaudhary
 */
 
 #include <stdio.h>
@@ -78,7 +79,7 @@ pTable* createLookUpTable(int no_of_slots)
 }
 
 pTable* PopulateLookUpTable(pTable* table,char** tokens,int no_of_tokens, int no_of_slots) {
-    printf("populate\n");
+    // printf("populate\n");
     for(int i = 0; i < no_of_tokens; i++) {
         //printf("%d, %lu\n", i, sizeof(tokens));
         if(tokens[i] == NULL) {

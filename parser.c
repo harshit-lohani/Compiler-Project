@@ -1,9 +1,10 @@
 /*
-Group:33
-2016A7PS0036P Megh Thakkar
-2016A7PS0103P Sahil Singla
-2016A7PS0110P Sankalp Sangle
-2016A7PS0150P Patel Parth
+Group:38
+2019A7PS0048P Dhairya Rikul Shah
+2019A7PS0061P Harshit Raj Lohani
+2019A7PS0124P Kshitij Banka
+2019A7PS0014P Rohini Prakash
+2019A7PS0082P Raghav Chaudhary
 */
 
 #include <stdio.h>
@@ -219,7 +220,7 @@ void make_tksem_as_syn() {
 
 void removeComments(char *test_case_file, char *cleaned_test_file) {
   FILE *fp1 = fopen(test_case_file, "r");
-  // FILE *fp2 = fopen(cleaned_test_file, "w");
+  FILE *fp2 = fopen(cleaned_test_file, "w");
   int ch;
   int comment_found = 0;
   while (1) {
@@ -228,7 +229,7 @@ void removeComments(char *test_case_file, char *cleaned_test_file) {
       break;
     if (comment_found == 1 && ch == '\n') {
       // fprintf(fp2, "%c", ch);
-      // fprintf(stdout, "%c", ch);
+      fprintf(stdout, "%c", ch);
       comment_found = 0;
     } else if (comment_found)
       continue;
@@ -236,12 +237,12 @@ void removeComments(char *test_case_file, char *cleaned_test_file) {
       comment_found = 1;
     else {
       // fprintf(fp2, "%c", ch);
-      // fprintf(stdout, "%c", ch);
+      fprintf(stdout, "%c", ch);
     }
   }
   printf("Created cleaned file named out.txt\n.");
-  // fclose(fp1);
-  // fclose(fp2);
+  fclose(fp1);
+  fclose(fp2);
 }
 
 void addToSet(int *bit_vector, int terminal) { bit_vector[terminal] = 1; }
@@ -387,7 +388,7 @@ void helper(FirstAndFollow *first_follow_sets){
 	
 	for(int i = 0 ; i < 53 ; i++) {
 		sscanf(firstSet[i], "%s %[^\n]", left, buffer);
-		printf("\n%s\n", left);
+		// printf("\n%s\n", left);
 
 		int lidx = pLookUp(plookupTable, left);
 		while(1){
@@ -395,7 +396,7 @@ void helper(FirstAndFollow *first_follow_sets){
 			if(right == NULL){
 				break;
 			}
-			printf("%s ", right);
+			// printf("%s ", right);
 			int tidx = pLookUp(plookupTable, right);
 			addToSet(first_follow_sets->first[lidx], tidx);
 			// free(right);
@@ -403,10 +404,10 @@ void helper(FirstAndFollow *first_follow_sets){
 		// free(left);
 	}
 	// free(buffer);
-	printf("--------------------PRINTED!-----------\n\n\n\n");
+	// printf("--------------------PRINTED!-----------\n\n\n\n");
 	for(int i = 0 ; i < 53 ; i++) {
 		sscanf(followSet[i], "%s %[^\n]", left, buffer);
-		printf("\n%s\n", left);
+		// printf("\n%s\n", left);
 
 		int lidx = pLookUp(plookupTable, left);
 		while(1){
@@ -414,14 +415,14 @@ void helper(FirstAndFollow *first_follow_sets){
 			if(right == NULL){
 				break;
 			}
-			printf("%s ", right);
+			// printf("%s ", right);
 			int tidx = pLookUp(plookupTable, right);
 			addToSet(first_follow_sets->follow[lidx], tidx);
 			// free(right);
 		}
 		// free(left);
 	}
-	printf("--------------------PRINTED!-----------\n\n\n\n");
+	// printf("--------------------PRINTED!-----------\n\n\n\n");
 
 	// free(buffer);
 	// free(left);
@@ -853,7 +854,7 @@ parseTreeNode *parseInputSourceCode(char *testcaseFile, int **parseTable,
 
     // If top of the stack is $ and input is still left
     StackNode *top_node = top(stack);
-    printf("Stack top: %d\n", top_node->stack_data->symType.terminalType);
+    // printf("Stack top: %d\n", top_node->stack_data->symType.terminalType);
     if ((top_node->stack_data->isTerminal == 1) &&
         (top_node->stack_data->symType.terminalType == DOLLAR)) {
       *errors = 1;

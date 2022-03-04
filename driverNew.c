@@ -1,9 +1,10 @@
 /*
-Group:33
-2016A7PS0036P Megh Thakkar
-2016A7PS0103P Sahil Singla
-2016A7PS0110P Sankalp Sangle
-2016A7PS0150P Patel Parth
+Group:38
+2019A7PS0048P Dhairya Rikul Shah
+2019A7PS0061P Harshit Raj Lohani
+2019A7PS0124P Kshitij Banka
+2019A7PS0014P Rohini Prakash
+2019A7PS0082P Raghav Chaudhary
 */
 
 /*
@@ -125,11 +126,6 @@ int symbol_tables_created = 0;
 
 #define SIZE 1.3
 
-// void getMemory(int * p1, int * p2) {
-// 	*p1  = PARSER_SIZE*(sizeof(parseTreeNode));
-// 	AST_SIZE *= SIZE;
-// 	*p2= AST_SIZE*(sizeof(astNode));
-// }
 
 int main(int argc, char *argv[]) {
 
@@ -141,18 +137,10 @@ int main(int argc, char *argv[]) {
 
   int syntax_errors = 0;
 
-  // printf("***************************Information of implementation "
-  //        "details:***************************\n\n");
-  // printf("LEVEL 4 : AST / Symbol Table / Type Checker / Semantic Module work "
-  //        "correctly\n");
-
-  // printf("***************************End of implementation "
-  //        "details***************************\n\n");
 
   double total_CPU_time1, total_CPU_time_in_seconds1, total_CPU_time2,
       total_CPU_time_in_seconds2, total_CPU_time3, total_CPU_time_in_seconds3;
   FILE *fp1 = fopen(argv[1], "r");
-  // appendNewLine(fp1);
 
   printf("----------------------------- Execution started "
          "-----------------------------\n");
@@ -236,7 +224,7 @@ int main(int argc, char *argv[]) {
         plookupTable = PopulateLookUpTable(plookupTable, tokenMap2,
                                            TOTAL_TERMINALS, NUMBER_OF_SLOTS);
           // printf("3\n");
-          printf("%lu", sizeof(non_terminals2)/sizeof(non_terminals2[0]));
+          // printf("%lu", sizeof(non_terminals2)/sizeof(non_terminals2[0]));
         plookupTable = PopulateLookUpTable(
             plookupTable, non_terminals2, TOTAL_NON_TERMINALS, NUMBER_OF_SLOTS);
           // printf("4\n");
@@ -245,7 +233,7 @@ int main(int argc, char *argv[]) {
       }
       FirstAndFollow *first_and_follow = ComputeFirstAndFollowSets(NUMBER_OF_SLOTS);
         
-      printFirstAndFollow(first_and_follow);
+      // printFirstAndFollow(first_and_follow);
       
 	if (created_parse_table == 0) {
         parse_table = createParseTable(first_and_follow);
@@ -278,175 +266,17 @@ int main(int argc, char *argv[]) {
       total_CPU_time_in_seconds1 = total_CPU_time1 / CLOCKS_PER_SEC;
     } break;
 
-      // case 3:{
-      // 	if(created_parse_table == 1 && syntax_errors == 0 &&
-      // root_node_created == 1) { 		start_time2 = clock();
-      // ast = createAST(rootNode); 		printf("%-25s %-25s %-25s %-25s
-      // %-25s\n","Label","Lexeme","Parent","First Child","Sibling");
-      // 		print_ast(ast);
-      // 		ast_created = 1;
-      // 		initialize_symbol_tables(ast);
-      // 		symbol_tables_created = 1;
-      // 		end_time2 = clock();
-      // 		total_CPU_time2 = (double) (end_time2 - start_time2);
-      // 		total_CPU_time_in_seconds2 = total_CPU_time2 /
-      // CLOCKS_PER_SEC;
-      // 	}
-      // 	else {
-      // 		if(syntax_errors == 1) {
-      // 			printf("Input source code is syntactically
-      // incorrect. Hence, AST not being created.\n");
-      // 		}
-      // 		if(root_node_created == 0) {
-      // 			printf("Parse tree not yet created. Press 2
-      // first to generate it.\n");
-      // 		}
-      // 	}
-      // } break;
+      case 4:{
+      	printf("Total CPU time : %lf\n", total_CPU_time1 +
+      total_CPU_time2); 	printf("Total CPU time in seconds : %lf\n",
+      total_CPU_time_in_seconds1 + total_CPU_time_in_seconds2);
 
-      // case 4:{
-      // 	int parse_tree_memory;
-      // 	int ast_memory;
-      // 	getMemory( &parse_tree_memory, &ast_memory);
-      // 	printf("Parse Tree Number of Nodes : %d     Allocated Memory :
-      // %d\n", PARSER_SIZE, parse_tree_memory); 	printf("AST Number of
-      // Nodes : %d            Allocated Memory : %d\n", AST_SIZE, ast_memory);
-      // 	if(ast_created == 1)
-      // 		printf("Compression Ratio =
-      // %f\n",(1.0*(parse_tree_memory-return_mul(ast_memory))/parse_tree_memory*100.0));
-      // 	else {
-      // 		if(syntax_errors == 1) {
-      // 			printf("Input source code is syntactically
-      // incorrect. Hence, AST not being created.\n"); 		}else{
-      // 			if(root_node_created == 0) {
-      // 				printf("Parse tree not yet created.
-      // Press 2 first to generate it.\n");
-      // 			}
-      // 			else {
-      // 				printf("AST not yet created. Press 3
-      // first to generate it.\n");
-      // 			}
-      // 		}
-      // 	}
-      // }break;
-
-      // case 5:{
-      // 	if(ast_created == 1) {
-      // 		printf("-----------------------Identifier
-      // Table-----------------------------\n");
-      // 		printSymbolTable(IdentifierTable);
-      // 	}
-      // 	else {
-      // 		printf("AST not yet created. Please press 3\n");
-      // 	}
-      // }break;
-
-      // case 6:{
-      // 	if(symbol_tables_created == 1) {
-      // 		printf("%-30s %-30s %-30s %-30s\n",
-      // 					"Lexeme",
-      // 					"Type",
-      // 					"Offset",
-      // 					"-----"
-      // 					);
-      // 		printGlobalSymbolTable(IdentifierTable);
-      // 	} else {
-      // 		printf("AST not yet created. Please press 3\n");
-      // 	}
-      // }break;
-
-      // case 7:{
-      // 	if(symbol_tables_created == 1) {
-      // 		printf("-------------------------Function
-      // Table----------------------------\n"); 		printf("%-30s
-      // %s\n","Lexeme", "Width");
-      // printFunctionTable(FunctionTable); 	} else {
-      // printf("AST not yet created. Please press 3\n");
-      // 	}
-
-      // }break;
-
-      // case 8:{
-      // 	if(symbol_tables_created == 1) {
-      // 		printf("------------------------Record
-      // Table----------------------------\n");
-      // printRecordTable(RecordTable);
-
-      // 	} else {
-      // 		printf("AST not yet created. Please press 3\n");
-      // 	}	break;
-      // }
-      // case 9:{
-      // 	if(ast_created==0)
-      // 	{
-      // 			if(syntax_errors==1)
-      // 			{
-      // 				printf("Syntax errors exist.\n");
-      // 				for(int i = 0; i < error_index; i++) {
-      // 					printf("%s",
-      // syntax_error_text[i]);
-      // 				}
-      // 				continue;
-      // 			}
-      // 			printf("AST not created. Press 3 for creating
-      // AST\n"); 			continue;
-      // 	}
-      // 	if(syntax_errors==1)
-      // 	{
-      // 		printf("Syntax errors exist.\n");
-      // 		for(int i = 0; i < error_index; i++) {
-      // 					printf("%s",
-      // syntax_error_text[i]);
-      // 		}
-      // 	}
-      // 	else
-      // 	{
-      // 		printf("No syntax errors exist\n");
-      // 		if(ast_created==0)
-      // 		{
-      // 			if(syntax_errors==1)
-      // 			{
-      // 				printf("Syntax errors exist. Refer to
-      // case 2 for all syntax errors\n");
-      // 			}
-      // 			else
-      // 			{
-      // 				printf("AST not created. Press 3 for
-      // creating AST\n");
-      // 			}
-
-      // 		}
-      // 		else
-      // 		{
-      // 			for(int i = 0; i < symbol_table_error_index;
-      // i++) { 					printf("%s",
-      // symbol_table_errors_text[i]);
-      // 			}
-      // 			semantic_analysis(ast);
-      // 			if(semantic_errors_detected == 0)
-      // 			{
-      // 				printf("No semantic errors exist\n");
-      // 			}
-      // 		}
-      // 	}
-      // 	printf("Total CPU time : %lf\n", total_CPU_time1 +
-      // total_CPU_time2); 	printf("Total CPU time in seconds : %lf\n",
-      // total_CPU_time_in_seconds1 + total_CPU_time_in_seconds2);
-
-      // }break;
-
-      // case 10:{
-      // 	//start_code_generation(ast);
-      // 	//generate_asm(argv[2]);
-      // 	printf("Code Generation module not implemented\n");
-      // }break;
+      }break;
     }
 
     if (break_loop)
       break;
   }
-  printf("----------------------------- Execution complete "
-         "-----------------------------\n");
 
   return 0;
 }
